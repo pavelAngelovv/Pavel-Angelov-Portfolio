@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavel Angelov - Full Stack Developer</title>
+  <meta name="description" content="Pavel Angelov is a full stack developer in Varna, Bulgaria, building web and mobile products with Laravel, Vue/Nuxt and React - real-time chat, subscription billing, bank payments and AI features." />
+  <meta name="theme-color" content="#0c0c0d" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0c0d'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23ff5a1f'%3EPA%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__top">
+      <span class="mono">Pavel Angelov</span>
+      <span class="mono">Portfolio ©2026</span>
+    </div>
+    <div class="loader__words">
+      <span class="loader__word">Build.</span>
+      <span class="loader__word">Ship.</span>
+      <span class="loader__word"><em>Repeat.</em></span>
+    </div>
+    <div class="loader__bottom">
+      <span class="loader__count">0</span>
+      <div class="loader__bar"><span></span></div>
+    </div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a href="#top" class="nav__logo" data-magnetic>PA<em>©</em></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work" data-link>Work</a>
+      <a href="#experience" data-link>Experience</a>
+      <a href="#stack" data-link>Stack</a>
+      <a href="#contact" data-link>Contact</a>
+    </nav>
+    <div class="nav__meta mono">
+      <span class="dot"></span><span>Varna <span class="js-clock">--:--</span></span>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__glow-wrap" aria-hidden="true"><div class="hero__glow"></div></div>
+      <div class="hero__inner">
+        <p class="hero__eyebrow mono"><span class="hero__eyebrow-line"></span>Full Stack Developer - Varna, Bulgaria</p>
+        <h1 class="hero__name" aria-label="Pavel Angelov">
+          <span class="hero__line hero__line--a" aria-hidden="true">Pavel</span>
+          <span class="hero__line hero__line--b" aria-hidden="true"><em>Angelov</em></span>
+        </h1>
+        <div class="hero__foot">
+          <p class="hero__lede">I build web &amp; mobile products end to end - <em>from the database to the deploy.</em></p>
+          <ul class="hero__tags mono">
+            <li>Laravel</li><li>Vue / Nuxt</li><li>React</li><li>Claude API</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero__badge-wrap" aria-hidden="true"><svg class="hero__badge" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="circlePath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+        <text><textPath href="#circlePath" textLength="486" lengthAdjust="spacing">Open to new roles • Full stack developer • </textPath></text>
+        <circle cx="100" cy="100" r="6" />
+      </svg></div>
+
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto" id="about">
+      <p class="label mono"><span>(01)</span> About</p>
+      <p class="manifesto__text">
+        I build products people use <em>every day</em> - real-time chat, payments and <em>AI features.</em> AI-first workflow, every line reviewed.
+      </p>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee" aria-label="Technologies">
+      <div class="marquee__row" data-dir="1">
+        <div class="marquee__inner">
+          <span>Laravel</span><i>✦</i><span><em>Vue 3</em></span><i>✦</i><span>Nuxt</span><i>✦</i><span><em>React</em></span><i>✦</i><span>TypeScript</span><i>✦</i><span><em>Stripe</em></span><i>✦</i><span>Borica</span><i>✦</i><span><em>Claude API</em></span><i>✦</i>
+        </div>
+      </div>
+      <div class="marquee__row marquee__row--alt" data-dir="-1">
+        <div class="marquee__inner">
+          <span>Reverb</span><i>✦</i><span><em>Capacitor</em></span><i>✦</i><span>Filament</span><i>✦</i><span><em>Symfony</em></span><i>✦</i><span>WordPress</span><i>✦</i><span><em>OpenAI</em></span><i>✦</i><span>AWS</span><i>✦</i><span><em>Cloudflare</em></span><i>✦</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK (horizontal) -->
+    <section class="work" id="work">
+      <div class="work__track">
+        <div class="panel panel--intro">
+          <p class="label mono"><span>(02)</span> Selected work</p>
+          <h2 class="work__title"><span>Things I've</span> <em>built</em> <span>&amp; shipped</span></h2>
+          <p class="work__hint mono">Keep scrolling <span>→</span></p>
+        </div>
+
+        <!-- TouchUp -->
+        <article class="panel panel--project" data-project="touchup">
+          <span class="panel__num" aria-hidden="true">01</span>
+          <div class="panel__copy">
+            <p class="mono panel__meta">Touchpoint EOOD · Live</p>
+            <h3 class="panel__title">TouchUp</h3>
+            <p class="panel__sub"><em>AI proposal platform</em></p>
+            <ul class="panel__list">
+              <li>Built Stripe subscription billing - multiple products and prices, monthly &amp; annual plans, pricing managed from the admin panel.</li>
+              <li>Co-developed AI offer generation: describe the job, Claude drafts a structured offer from the company's pricing knowledge base.</li>
+              <li>Used in-house daily since launch.</li>
+            </ul>
+            <ul class="chips mono"><li>React</li><li>TypeScript</li><li>Laravel</li><li>Stripe</li><li>Claude API</li></ul>
+            <a class="panel__link" href="https://touchupapp.com" target="_blank" rel="noopener" data-cursor="Visit">touchupapp.com <span>↗</span></a>
+          </div>
+          <div class="panel__visual">
+            <div class="tu">
+              <div class="tu__bar"><i></i><i></i><i></i><span class="mono">touchupapp.com / offers / new</span></div>
+              <div class="tu__body">
+                <div class="tu__field">
+                  <span class="mono tu__lbl">Describe the job</span>
+                  <p class="tu__typed" data-text="Corporate website, 8 pages, bilingual, CMS and a booking form."></p>
+                </div>
+                <div class="tu__gen">
+                  <p class="mono tu__spark"><span>✦</span> Claude is drafting your offer</p>
+                  <ul class="tu__rows">
+                    <li><span data-scramble="Discovery &amp; UX">Discovery &amp; UX</span><b data-scramble="€ 1,200">€ 1,200</b></li>
+                    <li><span data-scramble="Design - 8 pages">Design - 8 pages</span><b data-scramble="€ 2,400">€ 2,400</b></li>
+                    <li><span data-scramble="CMS + i18n setup">CMS + i18n setup</span><b data-scramble="€ 1,650">€ 1,650</b></li>
+                    <li><span data-scramble="Booking form">Booking form</span><b data-scramble="€ 900">€ 900</b></li>
+                  </ul>
+                  <div class="tu__total"><span>Total</span><b>€ <span class="tu__sum">0</span></b></div>
+                </div>
+                <div class="tu__plan">
+                  <div class="tu__toggle mono"><span class="is-on">Monthly</span><span>Annual</span><i></i></div>
+                  <p class="tu__price mono">Stripe · <b class="tu__price-val">Monthly plan</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Palace of Culture -->
+        <article class="panel panel--project" data-project="pernik">
+          <span class="panel__num" aria-hidden="true">02</span>
+          <div class="panel__copy">
+            <p class="mono panel__meta">Touchpoint EOOD · Live, used daily</p>
+            <h3 class="panel__title">Palace of Culture <em>Pernik</em></h3>
+            <p class="panel__sub"><em>Ticketing &amp; seating</em></p>
+            <ul class="panel__list">
+              <li>Led development of the custom seating plugin used daily for online and box-office sales - interactive seat maps, per-seat and age-category pricing, seats released automatically when a payment fails.</li>
+              <li>Integrated Borica card payments end to end, from technical setup to correspondence with the bank. Configured on-site ticket printing.</li>
+              <li>Wrote the staff guides and provide ongoing support.</li>
+            </ul>
+            <ul class="chips mono"><li>WordPress</li><li>WooCommerce</li><li>FooEvents</li><li>Borica</li></ul>
+            <a class="panel__link" href="https://palacepernik.com" target="_blank" rel="noopener" data-cursor="Visit">palacepernik.com <span>↗</span></a>
+          </div>
+          <div class="panel__visual">
+            <div class="seats">
+              <div class="seats__stage mono">Stage</div>
+              <div class="seats__map"></div>
+              <div class="seats__legend mono"><span><i></i>Free</span><span><i class="sold"></i>Sold</span><span class="seats__count"><b>0</b> sold</span></div>
+              <div class="ticket">
+                <div class="ticket__slot"></div>
+                <div class="ticket__paper mono">
+                  <span class="ticket__head">Palace of Culture</span>
+                  <span>Row 7 · Seat 12</span>
+                  <span>Adult · Borica ✓</span>
+                  <span class="ticket__barcode"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- NIAM -->
+        <article class="panel panel--project" data-project="niam">
+          <span class="panel__num" aria-hidden="true">03</span>
+          <div class="panel__copy">
+            <p class="mono panel__meta">Touchpoint EOOD · Pre-launch</p>
+            <h3 class="panel__title">NIAM</h3>
+            <p class="panel__sub"><em>C2C marketplace - web, iOS &amp; Android</em></p>
+            <ul class="panel__list">
+              <li>Built the real-time chat single-handedly - messaging, typing indicators and read receipts over WebSockets (Laravel Reverb &amp; Echo).</li>
+              <li>Co-developed AI listing moderation with OpenAI text and vision models to flag counterfeit, forbidden or mismatched items.</li>
+              <li>Contributed across listings, search, offers, accounts and the Filament admin.</li>
+            </ul>
+            <ul class="chips mono"><li>Laravel</li><li>Nuxt</li><li>Reverb</li><li>Capacitor</li><li>OpenAI</li></ul>
+            <a class="panel__link" href="https://phpstack-1538274-5939245.cloudwaysapps.com/" target="_blank" rel="noopener" data-cursor="Preview">View pre-launch preview <span>↗</span></a>
+          </div>
+          <div class="panel__visual">
+            <div class="phone">
+              <div class="phone__notch"></div>
+              <div class="phone__head"><span class="phone__avatar">M</span><div><b>Maria</b><small class="mono phone__status">online</small></div></div>
+              <div class="chat">
+                <div class="msg msg--in">Hi! Is the jacket still available?</div>
+                <div class="msg msg--out">Yes - it's yours if you want it 🙂<span class="ticks">✓✓</span></div>
+                <div class="msg msg--in">Can you do 40 лв?</div>
+                <div class="msg msg--offer"><span class="mono">Offer sent</span><b>42 лв</b><span class="ticks">✓✓</span></div>
+                <div class="typing"><i></i><i></i><i></i></div>
+                <div class="msg msg--in">Deal 🤝</div>
+              </div>
+              <div class="phone__flag mono"><span>AI moderation</span> listing approved ✓</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Burgas Airport Taxi -->
+        <article class="panel panel--project" data-project="taxi">
+          <span class="panel__num" aria-hidden="true">04</span>
+          <div class="panel__copy">
+            <p class="mono panel__meta">Live · 5 languages</p>
+            <h3 class="panel__title">Burgas <em>Airport Taxi</em></h3>
+            <p class="panel__sub"><em>Multilingual transfer booking site</em></p>
+            <ul class="panel__list">
+              <li>Built a static Astro site in 5 languages (EN, DE, PL, CS, RO) with hreflang, a sitemap and per-language SEO meta.</li>
+              <li>Generated a landing page for each of 20 destinations from a single price dataset, plus SEO guides and an FAQ with TaxiService and FAQPage structured data.</li>
+              <li>Booking form with spam protection and AJAX submission, WhatsApp, Viber and Telegram contact, deployed on Cloudflare.</li>
+            </ul>
+            <ul class="chips mono"><li>Astro</li><li>Tailwind</li><li>daisyUI</li><li>i18n</li><li>SEO</li><li>Cloudflare</li></ul>
+            <a class="panel__link" href="https://burgas2airport.com" target="_blank" rel="noopener" data-cursor="Visit">burgas2airport.com <span>↗</span></a>
+          </div>
+          <div class="panel__visual">
+            <div class="route">
+              <svg class="route__map" viewBox="0 0 520 440" aria-hidden="true">
+                <defs>
+                  <radialGradient id="seaFade" cx="0.68" cy="0.5" r="0.55">
+                    <stop offset="0" stop-color="#ff5a1f" stop-opacity="0.12" />
+                    <stop offset="1" stop-color="#ff5a1f" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+                <path class="route__sea" d="M330,0 C322,40 314,70 316,95 C330,100 348,104 342,114 C330,118 316,120 306,140 C302,160 318,168 300,176 C270,190 240,200 228,222 C240,240 280,250 318,262 C336,268 334,290 342,312 C350,340 356,370 366,400 L372,440 L520,440 L520,0 Z" />
+                <path class="route__coast" d="M330,0 C322,40 314,70 316,95 C330,100 348,104 342,114 C330,118 316,120 306,140 C302,160 318,168 300,176 C270,190 240,200 228,222 C240,240 280,250 318,262 C336,268 334,290 342,312 C350,340 356,370 366,400 L372,440" />
+                <text class="route__sea-label" x="430" y="200">Black Sea</text>
+                <path class="route__path" id="taxiRoute" d="M250,186 C262,168 280,150 284,128 C288,110 294,98 300,88" />
+                <g class="route__pins">
+                  <g class="pin" transform="translate(300,88)"><circle r="4" /><text x="-12" y="-8" text-anchor="end">Sunny Beach</text></g>
+                  <g class="pin" transform="translate(332,108)"><circle r="3" /><text x="10" y="4">Nessebar</text></g>
+                  <g class="pin" transform="translate(300,160)"><circle r="3" /><text x="10" y="4">Pomorie</text></g>
+                  <g class="pin" transform="translate(212,222)"><circle r="3" /><text x="-10" y="4" text-anchor="end">Burgas</text></g>
+                  <g class="pin" transform="translate(304,272)"><circle r="3" /><text x="-10" y="4" text-anchor="end">Sozopol</text></g>
+                  <g class="pin" transform="translate(330,326)"><circle r="3" /><text x="-10" y="4" text-anchor="end">Primorsko</text></g>
+                  <g class="pin" transform="translate(350,388)"><circle r="3" /><text x="-10" y="4" text-anchor="end">Tsarevo</text></g>
+                  <g class="pin pin--airport" transform="translate(250,186)"><circle r="6" /><text x="-12" y="4" text-anchor="end">BOJ Airport</text></g>
+                </g>
+                <g class="route__car"><circle r="11" class="route__car-glow" /><circle r="5" /></g>
+              </svg>
+              <div class="fare">
+                <div class="fare__langs mono"><span class="is-on">EN</span><span>DE</span><span>PL</span><span>CS</span><span>RO</span></div>
+                <p class="fare__route">Burgas Airport → <b class="fare__dest">Sunny Beach</b></p>
+                <div class="fare__row mono"><span class="fare__label">35 km · fixed price</span><b>40 €</b></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Client sites -->
+        <article class="panel panel--clients">
+          <span class="panel__num" aria-hidden="true">05</span>
+          <div class="clients">
+            <p class="mono panel__meta">Client work · WordPress · Selected</p>
+            <h3 class="panel__title">Custom themes &amp; features <em>for client sites</em></h3>
+            <ul class="clients__list">
+              <li><a href="https://joytaxi.bg" target="_blank" rel="noopener" data-cursor="Visit"><span>joytaxi.bg</span><i>↗</i></a></li>
+              <li><a href="https://drvilyanamaleva.com" target="_blank" rel="noopener" data-cursor="Visit"><span>drvilyanamaleva.com</span><i>↗</i></a></li>
+              <li><a href="https://venidyacht.com" target="_blank" rel="noopener" data-cursor="Visit"><span>venidyacht.com</span><i>↗</i></a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <div class="work__progress" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="stat"><b data-count="3">0</b><span>Products shipped or in flight at Touchpoint</span></div>
+      <div class="stat"><b data-count="5">0</b><span>Client WordPress sites</span></div>
+      <div class="stat"><b data-count="2">0</b><span>Payment gateways integrated - Stripe &amp; Borica</span></div>
+      <div class="stat"><b data-count="2">0</b><span>AI APIs integrated - Claude &amp; OpenAI</span></div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+      <div class="experience__head">
+        <p class="label mono"><span>(03)</span> Experience</p>
+        <h2 class="section-title" data-reveal>Where I've <em>worked</em></h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card__top mono"><span>Apr 2026 - Present</span><span>Varna, BG</span></div>
+          <h3 class="card__role">Full Stack Developer</h3>
+          <p class="card__co"><em>Touchpoint EOOD</em></p>
+          <ul class="card__list">
+            <li>Stripe subscription billing and AI offer generation for TouchUp.</li>
+            <li>Seating plugin, Borica payments and box-office printing for the Palace of Culture Pernik.</li>
+            <li>Real-time chat and AI listing moderation for the NIAM marketplace.</li>
+            <li>Custom WordPress themes and features for client sites.</li>
+          </ul>
+          <span class="card__idx" aria-hidden="true">01</span>
+        </article>
+        <article class="card">
+          <div class="card__top mono"><span>Feb 2024 - Mar 2026</span><span>Self-directed</span></div>
+          <h3 class="card__role">Upskilling &amp; certifications</h3>
+          <p class="card__co"><em>SoftUni · AWS</em></p>
+          <ul class="card__list">
+            <li>Completed the SoftUni ReactJS course.</li>
+            <li>Earned the AWS Certified Cloud Practitioner certification.</li>
+            <li>Deployed personal projects to Cloudflare, AWS, Cloudways and cPanel hosting.</li>
+          </ul>
+          <span class="card__idx" aria-hidden="true">02</span>
+        </article>
+        <article class="card">
+          <div class="card__top mono"><span>Jan 2023 - Feb 2024</span><span>Bulgaria</span></div>
+          <h3 class="card__role">Full Stack Developer</h3>
+          <p class="card__co"><em>Codixis Bulgaria</em></p>
+          <ul class="card__list">
+            <li>Contributed to the previous web platform of the Muséum national d'Histoire naturelle, Paris (React, Next.js, Symfony).</li>
+            <li>Built REST APIs with API Platform for CMS-driven features, with backend logic in Symfony and Doctrine ORM.</li>
+          </ul>
+          <span class="card__idx" aria-hidden="true">03</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="stack" id="stack">
+      <p class="label mono"><span>(04)</span> Stack</p>
+      <h2 class="section-title" data-reveal>The <em>toolbox</em></h2>
+      <div class="stack__grid">
+        <div class="skill"><h4 class="mono" data-scramble-title>Backend</h4><p>PHP 8 · Laravel · Symfony · REST APIs · Sanctum · Queues · Filament</p></div>
+        <div class="skill"><h4 class="mono" data-scramble-title>Frontend</h4><p>TypeScript · Vue 3 · Nuxt · React · Next.js · Tailwind</p></div>
+        <div class="skill"><h4 class="mono" data-scramble-title>AI</h4><p>Claude API · OpenAI API · Claude Code · Cursor</p></div>
+        <div class="skill"><h4 class="mono" data-scramble-title>Payments</h4><p>Stripe Billing, subscriptions &amp; webhooks · Borica</p></div>
+        <div class="skill"><h4 class="mono" data-scramble-title>Real-time &amp; mobile</h4><p>Laravel Reverb · WebSockets · Capacitor</p></div>
+        <div class="skill"><h4 class="mono" data-scramble-title>Deployment</h4><p>AWS · Cloudflare · Cloudways · cPanel · Git</p></div>
+        <div class="skill"><h4 class="mono" data-scramble-title>WordPress</h4><p>Custom plugins &amp; themes · WooCommerce</p></div>
+        <div class="skill"><h4 class="mono" data-scramble-title>Data</h4><p>MySQL · Eloquent · Doctrine ORM</p></div>
+      </div>
+      <div class="creds">
+        <div><p class="mono">Certification</p><p>AWS Certified Cloud Practitioner <em>(CLF-C02), 2025</em></p></div>
+        <div><p class="mono">Education</p><p>Software University (SoftUni) <em>JavaScript Web Developer Program, 2021-2023</em></p></div>
+        <div><p class="mono">Languages</p><p>Bulgarian - native <em>English - fluent (C1-C2)</em></p></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTACT / FOOTER (curtain reveal) -->
+  <footer class="footer" id="contact">
+    <div class="footer__wrap">
+    <div class="footer__inner">
+      <p class="label mono"><span>(05)</span> Contact</p>
+      <h2 class="footer__title">
+        <span class="footer__line">Let's build</span>
+        <span class="footer__line"><em>something real.</em></span>
+      </h2>
+      <div class="footer__actions">
+        <a class="footer__cta" href="mailto:angelovpavel0@gmail.com" data-magnetic data-cursor="Write">
+          <span>Say hello</span>
+        </a>
+        <div class="footer__links">
+          <button class="footer__email" type="button" data-copy="angelovpavel0@gmail.com" data-cursor="Copy">
+            <span class="footer__email-text">angelovpavel0@gmail.com</span>
+            <span class="footer__email-hint mono">Click to copy</span>
+          </button>
+          <a class="footer__cv mono" href="/Pavel-Angelov-CV.pdf" download data-cursor="Get">Download CV ↓</a>
+        </div>
+      </div>
+      <div class="footer__bottom mono">
+        <span>© 2026 Pavel Angelov</span>
+        <span>Varna, Bulgaria · <span class="js-clock">--:--</span></span>
+        <a href="#top" data-link>Back to top ↑</a>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
