@@ -151,7 +151,7 @@ main { position: relative; z-index: 2; background: var(--bg); }
 /* ---------- Manifesto ---------- */
 .manifesto { min-height: 100vh; padding: 20vh var(--gutter); display: flex; flex-direction: column; justify-content: center; }
 .manifesto__text {
-  font-size: clamp(30px, 5.2vw, 84px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 500; max-width: 1400px;
+  font-size: clamp(26px, 3.6vw, 60px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 500; max-width: 1400px;
 }
 .manifesto__text em { color: var(--accent); }
 
