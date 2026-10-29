@@ -8,6 +8,7 @@ import 'lenis/dist/lenis.css';
 import './style.css';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, MotionPathPlugin);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -453,6 +454,10 @@ function work() {
   });
 
   mm.add('(max-width: 900px)', () => {
+    // Crop the coast map to the Burgas area so pins and labels stay readable on phones.
+    const map = $('.route__map');
+    map.setAttribute('viewBox', '150 60 250 360');
+
     const st = (panel) => ({ trigger: $('.panel__visual', panel) || panel, start: 'top 85%', end: 'bottom 55%', scrub: 1 });
     projects.forEach((panel) => {
       SCENES[panel.dataset.project](panel, st);
@@ -460,6 +465,8 @@ function work() {
     });
     clientsScene(clients, (p) => ({ trigger: p, start: 'top 80%', end: 'center 60%', scrub: 1 }));
     panelCopyReveal(clients, { trigger: clients, start: 'top 75%' });
+
+    return () => map.setAttribute('viewBox', '0 0 520 440');
   });
 }
 
