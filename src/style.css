@@ -306,7 +306,7 @@ main { position: relative; z-index: 2; background: var(--bg); }
 
 /* ---------- Stats ---------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--line); }
-.stat { padding: 48px var(--gutter); border-right: 1px solid var(--line); display: grid; gap: 12px; }
+.stat { padding: 48px var(--gutter); border-right: 1px solid var(--line); display: grid; gap: 12px; justify-items: center; text-align: center; }
 .stat:last-child { border-right: 0; }
 .stat b { font-size: clamp(64px, 8vw, 140px); line-height: 0.9; font-weight: 300; letter-spacing: -0.06em; }
 .stat span { color: var(--muted); font-size: 14px; max-width: 22ch; }
