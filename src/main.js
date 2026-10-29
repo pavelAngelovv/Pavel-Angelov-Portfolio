@@ -502,12 +502,13 @@ function work() {
 function stats() {
   $$('.stat').forEach((stat, i) => {
     const num = $('b', stat);
+    const suffix = num.dataset.suffix || '';
     const proxy = { v: 0 };
     // The real number is in the HTML for no-JS and reduced motion; count up from 0 here.
-    num.textContent = '0';
+    num.textContent = `0${suffix}`;
     gsap.timeline({ scrollTrigger: { trigger: '.stats', start: 'top 80%', toggleActions: 'play none none reverse' } })
       .from(stat, { y: 60, opacity: 0, duration: 1, ease: 'expo.out', delay: i * 0.08 })
-      .to(proxy, { v: +num.dataset.count, duration: 1.6, ease: 'power3.out', onUpdate: () => (num.textContent = Math.round(proxy.v)) }, '<');
+      .to(proxy, { v: +num.dataset.count, duration: 1.6, ease: 'power3.out', onUpdate: () => (num.textContent = Math.round(proxy.v) + suffix) }, '<');
   });
 }
 
