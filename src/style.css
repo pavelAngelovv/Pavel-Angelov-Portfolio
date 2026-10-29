@@ -182,7 +182,7 @@ main { position: relative; z-index: 2; background: var(--bg); }
 }
 .panel__copy { position: relative; z-index: 1; }
 .panel__meta { color: var(--muted); margin-bottom: 20px; }
-.panel__title { font-size: clamp(44px, 6vw, 104px); line-height: 1.02; letter-spacing: -0.05em; word-spacing: 0.1em; font-weight: 600; }
+.panel__title { font-size: clamp(44px, 6vw, 104px); line-height: 1.1; letter-spacing: -0.05em; word-spacing: 0.1em; font-weight: 600; }
 .panel__title em { color: var(--accent); }
 .panel__sub { font-size: clamp(20px, 2vw, 30px); color: var(--muted); margin: 12px 0 28px; }
 .panel__list { display: grid; gap: 14px; max-width: 52ch; color: #cfcbc4; font-size: 15px; }
