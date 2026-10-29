@@ -385,8 +385,7 @@ main { position: relative; z-index: 2; background: var(--bg); }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .nav { padding: 16px var(--gutter); }
-  .nav__links { gap: 20px; }
-  .nav__links a:not(:first-child):not(:last-child) { display: none; }
+  .nav__links { gap: clamp(12px, 4vw, 20px); font-size: clamp(13px, 3.6vw, 14px); }
   .nav__meta { display: none; }
   /* On phones, size the hero to its content instead of a mostly empty full screen. */
   .hero { min-height: 0; padding-top: 22svh; }
