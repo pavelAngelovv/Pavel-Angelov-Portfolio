@@ -446,7 +446,8 @@ function work() {
 
   mm.add('(min-width: 901px)', () => {
     const track = $('.work__track');
-    const distance = () => track.scrollWidth - window.innerWidth;
+    // Sum the panels' own widths: scrollWidth also counts the big numbers while they're shifted past the edge.
+    const distance = () => [...track.children].reduce((w, panel) => w + panel.offsetWidth, 0) - window.innerWidth;
     const horizontal = gsap.to(track, {
       x: () => -distance(),
       ease: 'none',
