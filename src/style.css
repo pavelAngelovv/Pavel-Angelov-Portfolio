@@ -324,6 +324,9 @@ main { position: relative; z-index: 2; background: var(--bg); }
   padding: clamp(24px, 4vw, 56px); overflow: hidden; transform-origin: center top;
   display: flex; flex-direction: column;
 }
+/* A non-developer role: same stack, but shorter so it doesn't outweigh the dev cards. */
+.card--compact { min-height: 0; }
+.card--compact .card__role { font-size: clamp(30px, 4vw, 64px); }
 .card:nth-child(2) { background: var(--paper); color: var(--bg); }
 .card:nth-child(2) .card__top, .card:nth-child(2) .card__list { color: #4a463f; }
 .card:nth-child(3) { background: var(--accent); color: var(--bg); }
