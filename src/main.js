@@ -145,16 +145,17 @@ function runLoader() {
   gsap.set(words, { y: 0, yPercent: 110 });
 
   const tl = gsap.timeline();
-  tl.to(counter, { v: 100, duration: 2.4, ease: 'power3.inOut', onUpdate: () => (count.textContent = Math.round(counter.v)) }, 0)
-    .to('.loader__bar span', { scaleX: 1, duration: 2.4, ease: 'power3.inOut' }, 0);
+  // Kept short on purpose: the whole intro is ~2.5s (was ~4s), so visitors reach the content quickly.
+  tl.to(counter, { v: 100, duration: 1.4, ease: 'power3.inOut', onUpdate: () => (count.textContent = Math.round(counter.v)) }, 0)
+    .to('.loader__bar span', { scaleX: 1, duration: 1.4, ease: 'power3.inOut' }, 0);
 
   words.forEach((w, i) => {
-    tl.to(w, { yPercent: 0, duration: 0.6, ease: 'expo.out' }, 0.15 + i * 0.7);
-    if (i < words.length - 1) tl.to(w, { yPercent: -110, duration: 0.5, ease: 'expo.in' }, 0.15 + i * 0.7 + 0.45);
+    tl.to(w, { yPercent: 0, duration: 0.4, ease: 'expo.out' }, 0.1 + i * 0.42);
+    if (i < words.length - 1) tl.to(w, { yPercent: -110, duration: 0.3, ease: 'expo.in' }, 0.1 + i * 0.42 + 0.28);
   });
 
-  tl.to('.loader__words, .loader__bottom, .loader__top', { yPercent: -40, opacity: 0, duration: 0.6, ease: 'power3.in' }, '+=0.15')
-    .to(loader, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'expo.inOut' }, '-=0.3')
+  tl.to('.loader__words, .loader__bottom, .loader__top', { yPercent: -40, opacity: 0, duration: 0.45, ease: 'power3.in' }, '+=0.1')
+    .to(loader, { clipPath: 'inset(0% 0% 100% 0%)', duration: 0.85, ease: 'expo.inOut' }, '-=0.25')
     .add(() => {
       loader.remove();
       document.body.classList.remove('is-loading');
@@ -177,21 +178,18 @@ function heroIntro() {
     .from('.hero__eyebrow', { opacity: 0, x: -20, duration: 1, ease: 'expo.out' }, 0.3)
     .from(lede.lines, { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: 0.08 }, 0.5)
     .from('.hero__tags li', { opacity: 0, y: 20, duration: 0.8, ease: 'expo.out', stagger: 0.06 }, 0.6)
-    .from('.hero__badge', { scale: 0, rotate: -180, duration: 1.4, ease: 'expo.out' }, 0.5)
+    .from('.hero__links li', { opacity: 0, y: 16, duration: 0.8, ease: 'expo.out', stagger: 0.06 }, 0.75)
     .from('.hero__glow', { scale: 0.3, opacity: 0, duration: 2, ease: 'expo.out' }, 0)
     .from('.nav', { yPercent: -100, opacity: 0, duration: 1, ease: 'expo.out' }, 0.6);
   return tl;
 }
 
 function heroScroll() {
-  gsap.to('.hero__badge text', { rotation: 360, svgOrigin: '100 100', duration: 18, repeat: -1, ease: 'none' });
-
   gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
     .to('.hero__line--a', { xPercent: -28, ease: 'none' }, 0)
     .to('.hero__line--b', { xPercent: 22, ease: 'none' }, 0)
-    .to('.hero__foot', { yPercent: 60, opacity: 0, ease: 'none' }, 0)
-    .to('.hero__glow-wrap', { scale: 1.8, opacity: 0, ease: 'none' }, 0)
-    .to('.hero__badge-wrap', { y: 200, scale: 0.6, ease: 'none' }, 0);
+    .to('.hero__foot, .hero__links', { yPercent: 60, opacity: 0, ease: 'none' }, 0)
+    .to('.hero__glow-wrap', { scale: 1.8, opacity: 0, ease: 'none' }, 0);
 
   if (finePointer) {
     const glow = $('.hero__glow');
