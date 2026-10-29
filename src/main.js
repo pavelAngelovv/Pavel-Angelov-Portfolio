@@ -5,6 +5,10 @@ import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
+import '@fontsource-variable/inter-tight';
+import '@fontsource-variable/jetbrains-mono';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
 import './style.css';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, MotionPathPlugin);
@@ -89,6 +93,7 @@ function setupAnchors() {
 function setupCursor() {
   const cursor = $('.cursor');
   const label = $('.cursor__label');
+  document.body.classList.add('has-cursor');
   const xTo = gsap.quickTo(cursor, 'x', { duration: 0.35, ease: 'power3' });
   const yTo = gsap.quickTo(cursor, 'y', { duration: 0.35, ease: 'power3' });
 
@@ -163,7 +168,8 @@ function runLoader() {
 
 function heroIntro() {
   const split = SplitText.create('.hero__line', { type: 'chars,lines', linesClass: 'ln', mask: 'lines' });
-  const lede = SplitText.create('.hero__lede', { type: 'lines', linesClass: 'ln', mask: 'lines' });
+  // aria: 'none' - aria-label isn't allowed on <p>, and whole-word splits read fine as-is.
+  const lede = SplitText.create('.hero__lede', { type: 'lines', linesClass: 'ln', mask: 'lines', aria: 'none' });
 
   const tl = gsap.timeline({ paused: true });
   tl.from(split.chars, { yPercent: 120, rotate: 6, duration: 1.4, ease: 'expo.out', stagger: 0.04 })
@@ -201,12 +207,32 @@ function heroScroll() {
 /* ---------- Manifesto: words light up as you read ---------- */
 
 function manifesto() {
-  const split = SplitText.create('.manifesto__text', { type: 'words' });
-  gsap.set(split.words, { opacity: 0.12 });
-  gsap.timeline({
-    scrollTrigger: { trigger: '.manifesto', start: 'top top', end: '+=140%', pin: true, scrub: 0.6 },
-  })
-    .to(split.words, { opacity: 1, stagger: 0.1, ease: 'none' });
+  const mm = gsap.matchMedia();
+  const setup = () => {
+    const split = SplitText.create('.manifesto__text', { type: 'words', aria: 'none' });
+    gsap.set(split.words, { opacity: 0.12 });
+    return split;
+  };
+
+  // Desktop: the section pins and words light up as you scroll.
+  mm.add('(min-width: 901px)', () => {
+    const split = setup();
+    gsap.timeline({
+      scrollTrigger: { trigger: '.manifesto', start: 'top top', end: '+=140%', pin: true, scrub: 0.6 },
+    })
+      .to(split.words, { opacity: 1, stagger: 0.1, ease: 'none' });
+    return () => split.revert();
+  });
+
+  // Phones: no pin, the words light up on their own once the text is in view.
+  mm.add('(max-width: 900px)', () => {
+    const split = setup();
+    gsap.to(split.words, {
+      opacity: 1, duration: 0.6, stagger: 0.06, ease: 'power1.out',
+      scrollTrigger: { trigger: '.manifesto__text', start: 'top 75%', once: true },
+    });
+    return () => split.revert();
+  });
 }
 
 /* ---------- Marquee: speed and direction follow scroll velocity ---------- */
@@ -227,7 +253,7 @@ function marquee() {
   let scrollDir = 1;
   let boost = 0;
 
-  ScrollTrigger.create({
+  const st = ScrollTrigger.create({
     trigger: '.marquee',
     start: 'top bottom',
     end: 'bottom top',
@@ -238,6 +264,7 @@ function marquee() {
   });
 
   gsap.ticker.add((_, dt) => {
+    if (!st.isActive) return; // off screen: skip the per-frame work
     boost += (0 - boost) * 0.05;
     rows.forEach((r) => {
       r.x = wrap(r.x - r.dir * scrollDir * (0.012 + boost * 0.25) * (dt / 16));
@@ -476,6 +503,8 @@ function stats() {
   $$('.stat').forEach((stat, i) => {
     const num = $('b', stat);
     const proxy = { v: 0 };
+    // The real number is in the HTML for no-JS and reduced motion; count up from 0 here.
+    num.textContent = '0';
     gsap.timeline({ scrollTrigger: { trigger: '.stats', start: 'top 80%', toggleActions: 'play none none reverse' } })
       .from(stat, { y: 60, opacity: 0, duration: 1, ease: 'expo.out', delay: i * 0.08 })
       .to(proxy, { v: +num.dataset.count, duration: 1.6, ease: 'power3.out', onUpdate: () => (num.textContent = Math.round(proxy.v)) }, '<');

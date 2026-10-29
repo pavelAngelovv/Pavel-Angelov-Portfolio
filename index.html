@@ -6,12 +6,33 @@
   <title>Pavel Angelov - Full Stack Developer</title>
   <meta name="description" content="Pavel Angelov is a full stack developer in Varna, Bulgaria, building web and mobile products with Laravel, Vue/Nuxt and React - real-time chat, subscription billing, bank payments and AI features." />
   <meta name="theme-color" content="#0c0c0d" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://pavel-angelov.pavel-portfolio.workers.dev/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pavel-angelov.pavel-portfolio.workers.dev/" />
+  <meta property="og:title" content="Pavel Angelov - Full Stack Developer" />
+  <meta property="og:description" content="Full stack developer in Varna, Bulgaria. Laravel, Vue/Nuxt and React - real-time chat, subscription billing, bank payments and AI features." />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pavel Angelov",
+      "jobTitle": "Full Stack Developer",
+      "url": "https://pavel-angelov.pavel-portfolio.workers.dev/",
+      "email": "mailto:angelovpavel0@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Varna", "addressCountry": "BG" },
+      "knowsAbout": ["Laravel", "Vue", "Nuxt", "React", "TypeScript", "Stripe", "Claude API", "OpenAI API"],
+      "sameAs": ["https://github.com/pavelAngelovv"]
+    }
+  </script>
+  <!-- Lets CSS tell whether JS is running, so the loader never covers the page without it. -->
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0c0d'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23ff5a1f'%3EPA%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <a class="skip-link" href="#about">Skip to content</a>
+
   <!-- Preloader -->
   <div class="loader" aria-hidden="true">
     <div class="loader__top">
@@ -73,7 +94,7 @@
     </section>
 
     <!-- MANIFESTO -->
-    <section class="manifesto" id="about">
+    <section class="manifesto" id="about" tabindex="-1">
       <p class="label mono"><span>(01)</span> About</p>
       <p class="manifesto__text">
         I build products people use <em>every day</em> - real-time chat, payments and <em>AI features.</em> AI-first workflow, every line reviewed.
@@ -277,11 +298,11 @@
     </section>
 
     <!-- STATS -->
-    <section class="stats">
-      <div class="stat"><b data-count="3">0</b><span>Products shipped or in flight at Touchpoint</span></div>
-      <div class="stat"><b data-count="5">0</b><span>Client WordPress sites</span></div>
-      <div class="stat"><b data-count="2">0</b><span>Payment gateways integrated - Stripe &amp; Borica</span></div>
-      <div class="stat"><b data-count="2">0</b><span>AI APIs integrated - Claude &amp; OpenAI</span></div>
+    <section class="stats" aria-label="Highlights">
+      <div class="stat"><b data-count="3">3</b><span>Products shipped or in flight at Touchpoint</span></div>
+      <div class="stat"><b data-count="5">5</b><span>Client WordPress sites</span></div>
+      <div class="stat"><b data-count="2">2</b><span>Payment gateways integrated - Stripe &amp; Borica</span></div>
+      <div class="stat"><b data-count="2">2</b><span>AI APIs integrated - Claude &amp; OpenAI</span></div>
     </section>
 
     <!-- EXPERIENCE -->
@@ -332,14 +353,14 @@
       <p class="label mono"><span>(04)</span> Stack</p>
       <h2 class="section-title" data-reveal>The <em>toolbox</em></h2>
       <div class="stack__grid">
-        <div class="skill"><h4 class="mono" data-scramble-title>Backend</h4><p>PHP 8 · Laravel · Symfony · REST APIs · Sanctum · Queues · Filament</p></div>
-        <div class="skill"><h4 class="mono" data-scramble-title>Frontend</h4><p>TypeScript · Vue 3 · Nuxt · React · Next.js · Tailwind</p></div>
-        <div class="skill"><h4 class="mono" data-scramble-title>AI</h4><p>Claude API · OpenAI API · Claude Code · Cursor</p></div>
-        <div class="skill"><h4 class="mono" data-scramble-title>Payments</h4><p>Stripe Billing, subscriptions &amp; webhooks · Borica</p></div>
-        <div class="skill"><h4 class="mono" data-scramble-title>Real-time &amp; mobile</h4><p>Laravel Reverb · WebSockets · Capacitor</p></div>
-        <div class="skill"><h4 class="mono" data-scramble-title>Deployment</h4><p>AWS · Cloudflare · Cloudways · cPanel · Git</p></div>
-        <div class="skill"><h4 class="mono" data-scramble-title>WordPress</h4><p>Custom plugins &amp; themes · WooCommerce</p></div>
-        <div class="skill"><h4 class="mono" data-scramble-title>Data</h4><p>MySQL · Eloquent · Doctrine ORM</p></div>
+        <div class="skill"><h3 class="mono" data-scramble-title>Backend</h3><p>PHP 8 · Laravel · Symfony · REST APIs · Sanctum · Queues · Filament</p></div>
+        <div class="skill"><h3 class="mono" data-scramble-title>Frontend</h3><p>TypeScript · Vue 3 · Nuxt · React · Next.js · Tailwind</p></div>
+        <div class="skill"><h3 class="mono" data-scramble-title>AI</h3><p>Claude API · OpenAI API · Claude Code · Cursor</p></div>
+        <div class="skill"><h3 class="mono" data-scramble-title>Payments</h3><p>Stripe Billing, subscriptions &amp; webhooks · Borica</p></div>
+        <div class="skill"><h3 class="mono" data-scramble-title>Real-time &amp; mobile</h3><p>Laravel Reverb · WebSockets · Capacitor</p></div>
+        <div class="skill"><h3 class="mono" data-scramble-title>Deployment</h3><p>AWS · Cloudflare · Cloudways · cPanel · Git</p></div>
+        <div class="skill"><h3 class="mono" data-scramble-title>WordPress</h3><p>Custom plugins &amp; themes · WooCommerce</p></div>
+        <div class="skill"><h3 class="mono" data-scramble-title>Data</h3><p>MySQL · Eloquent · Doctrine ORM</p></div>
       </div>
       <div class="creds">
         <div><p class="mono">Certification</p><p>AWS Certified Cloud Practitioner <em>(CLF-C02), 2025</em></p></div>
