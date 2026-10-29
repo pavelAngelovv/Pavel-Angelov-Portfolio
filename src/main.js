@@ -537,9 +537,18 @@ function experience() {
     });
     const next = cards[i + 1];
     if (!next) return;
+    // Start only once the next card actually overlaps this one (its stuck bottom edge),
+    // so short cards stay fully lit while they're being read.
+    const stuckTop = (el) => parseFloat(getComputedStyle(el).top) || 0;
     gsap.to(card, {
       scale: 0.9, yPercent: -4, '--dim': 0.55, ease: 'none',
-      scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 14%', scrub: true },
+      scrollTrigger: {
+        trigger: next,
+        start: () => `top ${stuckTop(card) + card.offsetHeight}px`,
+        end: () => `top ${stuckTop(next)}px`,
+        scrub: true,
+        invalidateOnRefresh: true,
+      },
     });
   });
   $$('.card__idx').forEach((idx) =>
