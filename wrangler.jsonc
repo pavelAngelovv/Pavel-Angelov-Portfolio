@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pavel-portfolio",
+  "compatibility_date": "2026-10-23",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    // Single-page site with no client routing: unknown URLs should be a real 404.
+    "not_found_handling": "none"
+  }
+}
