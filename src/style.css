@@ -290,16 +290,18 @@ main { position: relative; z-index: 2; background: var(--bg); }
 /* Clients */
 .panel--clients { width: 90vw; border-left: 1px solid var(--line); }
 .clients { position: relative; z-index: 1; width: 100%; }
-.clients .panel__title { max-width: 14ch; margin-bottom: 48px; }
+.clients .panel__title { max-width: 14ch; margin-bottom: 36px; }
 .clients__list li { border-top: 1px solid var(--line); }
 .clients__list li:last-child { border-bottom: 1px solid var(--line); }
-.clients__list a { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; font-size: clamp(28px, 4.4vw, 72px); letter-spacing: -0.04em; font-weight: 500; overflow: hidden; }
+.clients__list a { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 16px 0; font-size: clamp(28px, 3.4vw, 60px); line-height: 1.15; letter-spacing: -0.04em; font-weight: 500; overflow: hidden; }
 .clients__list a::before { content: ""; position: absolute; inset: 0; background: var(--accent); transform: scaleY(0); transform-origin: bottom; transition: transform 0.5s var(--ease); z-index: -1; }
 .clients__list a:hover::before { transform: scaleY(1); }
 .clients__list a:hover { color: var(--bg); }
 .clients__list a span { transition: transform 0.5s var(--ease); }
 .clients__list a:hover span { transform: translateX(24px); }
 .clients__list i { font-style: normal; font-size: 0.6em; margin-right: 16px; }
+.clients__role { margin: 0 32px 0 auto; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; white-space: nowrap; transition: color 0.3s; }
+.clients__list a:hover .clients__role { color: inherit; }
 
 .work__progress { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 36px; height: 1px; background: var(--line); }
 .work__progress span { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
@@ -398,6 +400,8 @@ main { position: relative; z-index: 2; background: var(--bg); }
   .ticket { right: 0; bottom: -136px; }
   .seats { margin-bottom: 140px; }
   .route__sea-label { transform: translateX(-70px); }
+  .clients__list a { flex-wrap: wrap; row-gap: 6px; }
+  .clients__role { order: 3; flex-basis: 100%; margin: 0; }
   .fare { position: relative; left: auto; bottom: auto; width: 100%; margin-top: 16px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(2) { border-right: 0; }
