@@ -23,13 +23,6 @@ const ACCENT = '#ff5a1f';
 
 /* ---------- Always-on bits ---------- */
 
-function startClock() {
-  const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Sofia' });
-  const tick = () => $$('.js-clock').forEach((el) => (el.textContent = fmt.format(new Date())));
-  tick();
-  setInterval(tick, 15000);
-}
-
 function setupCopyEmail() {
   const btn = $('[data-copy]');
   const hint = $('.footer__email-hint', btn);
@@ -620,7 +613,6 @@ function chrome() {
 
 /* ---------- Boot ---------- */
 
-startClock();
 setupCopyEmail();
 buildSeats();
 
