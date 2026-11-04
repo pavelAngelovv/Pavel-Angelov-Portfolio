@@ -19,9 +19,6 @@ const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(pointer: fine)').matches;
-const ACCENT = '#ff5a1f';
-
-/* ---------- Always-on bits ---------- */
 
 function setupCopyEmail() {
   const btn = $('[data-copy]');
@@ -38,7 +35,6 @@ function setupCopyEmail() {
   });
 }
 
-// Theatre seat map: curved rows that get wider toward the back, with an aisle.
 function buildSeats() {
   const map = $('.seats__map');
   const rows = [12, 14, 16, 18, 18, 20, 20, 22];
@@ -57,8 +53,6 @@ function buildSeats() {
     map.appendChild(row);
   });
 }
-
-/* ---------- Smooth scroll ---------- */
 
 let lenis = null;
 
@@ -80,8 +74,6 @@ function setupAnchors() {
     })
   );
 }
-
-/* ---------- Cursor & magnetic ---------- */
 
 function setupCursor() {
   const cursor = $('.cursor');
@@ -125,8 +117,6 @@ function setupMagnetic() {
   });
 }
 
-/* ---------- Loader ---------- */
-
 function runLoader() {
   const loader = $('.loader');
   const count = $('.loader__count');
@@ -138,7 +128,6 @@ function runLoader() {
   gsap.set(words, { y: 0, yPercent: 110 });
 
   const tl = gsap.timeline();
-  // Kept short on purpose: the whole intro is ~2.5s (was ~4s), so visitors reach the content quickly.
   tl.to(counter, { v: 100, duration: 1.4, ease: 'power3.inOut', onUpdate: () => (count.textContent = Math.round(counter.v)) }, 0)
     .to('.loader__bar span', { scaleX: 1, duration: 1.4, ease: 'power3.inOut' }, 0);
 
@@ -158,11 +147,8 @@ function runLoader() {
   return tl;
 }
 
-/* ---------- Hero ---------- */
-
 function heroIntro() {
   const split = SplitText.create('.hero__line', { type: 'chars,lines', linesClass: 'ln', mask: 'lines' });
-  // aria: 'none' - aria-label isn't allowed on <p>, and whole-word splits read fine as-is.
   const lede = SplitText.create('.hero__lede', { type: 'lines', linesClass: 'ln', mask: 'lines', aria: 'none' });
 
   const tl = gsap.timeline({ paused: true });
@@ -195,8 +181,6 @@ function heroScroll() {
   }
 }
 
-/* ---------- Manifesto: words light up as you read ---------- */
-
 function manifesto() {
   const mm = gsap.matchMedia();
   const setup = () => {
@@ -205,17 +189,15 @@ function manifesto() {
     return split;
   };
 
-  // Desktop: the section pins and words light up as you scroll.
   mm.add('(min-width: 901px)', () => {
     const split = setup();
     gsap.timeline({
-      scrollTrigger: { trigger: '.manifesto', start: 'top top', end: '+=140%', pin: true, scrub: 0.6 },
+      scrollTrigger: { trigger: '.manifesto', start: 'top top', end: '+=70%', pin: true, scrub: 0.6 },
     })
       .to(split.words, { opacity: 1, stagger: 0.1, ease: 'none' });
     return () => split.revert();
   });
 
-  // Phones: no pin, the words light up on their own once the text is in view.
   mm.add('(max-width: 900px)', () => {
     const split = setup();
     gsap.to(split.words, {
@@ -224,9 +206,12 @@ function manifesto() {
     });
     return () => split.revert();
   });
-}
 
-/* ---------- Marquee: speed and direction follow scroll velocity ---------- */
+  gsap.from('.manifesto__body', {
+    y: 24, opacity: 0, duration: 1, ease: 'expo.out',
+    scrollTrigger: { trigger: '.manifesto__body', start: 'top 90%', once: true },
+  });
+}
 
 function marquee() {
   const rows = $$('.marquee__row').map((row) => {
@@ -255,7 +240,7 @@ function marquee() {
   });
 
   gsap.ticker.add((_, dt) => {
-    if (!st.isActive) return; // off screen: skip the per-frame work
+    if (!st.isActive) return;
     boost += (0 - boost) * 0.05;
     rows.forEach((r) => {
       r.x = wrap(r.x - r.dir * scrollDir * (0.012 + boost * 0.25) * (dt / 16));
@@ -272,10 +257,6 @@ function marquee() {
   });
 }
 
-/* ---------- Work: pinned horizontal track with scene-per-project ---------- */
-
-// Each project's visual is its own little scrubbed scene. `st` supplies the trigger config,
-// so the same scene runs on the horizontal track (desktop) or vertically (mobile).
 function touchupScene(panel, st) {
   const typed = $('.tu__typed', panel);
   const full = typed.dataset.text;
@@ -381,7 +362,6 @@ function taxiScene(panel, st) {
   const len = route.getTotalLength();
   const langs = $$('.fare__langs span', panel);
   const label = $('.fare__label', panel);
-  // The fare card cycles through the site's languages as the taxi drives.
   const copy = ['35 km · fixed price', '35 km · Festpreis', '35 km · stała cena', '35 km · pevná cena', '35 km · preț fix'];
   const proxy = { lang: 0 };
 
@@ -437,7 +417,6 @@ function work() {
 
   mm.add('(min-width: 901px)', () => {
     const track = $('.work__track');
-    // Sum the panels' own widths: scrollWidth also counts the big numbers while they're shifted past the edge.
     const distance = () => [...track.children].reduce((w, panel) => w + panel.offsetWidth, 0) - window.innerWidth;
     const horizontal = gsap.to(track, {
       x: () => -distance(),
@@ -465,7 +444,6 @@ function work() {
       })
     );
 
-    // The intro headline drifts left faster than the track for a parallax hand-off.
     gsap.to('.panel--intro .work__title', {
       xPercent: -30, opacity: 0.2, ease: 'none',
       scrollTrigger: { trigger: '.panel--intro', containerAnimation: horizontal, start: 'left left', end: 'right left', scrub: true },
@@ -473,7 +451,6 @@ function work() {
   });
 
   mm.add('(max-width: 900px)', () => {
-    // Crop the coast map to the Burgas area so pins and labels stay readable on phones.
     const map = $('.route__map');
     map.setAttribute('viewBox', '150 60 250 360');
 
@@ -489,22 +466,17 @@ function work() {
   });
 }
 
-/* ---------- Stats ---------- */
-
 function stats() {
   $$('.stat').forEach((stat, i) => {
     const num = $('b', stat);
     const suffix = num.dataset.suffix || '';
     const proxy = { v: 0 };
-    // The real number is in the HTML for no-JS and reduced motion; count up from 0 here.
     num.textContent = `0${suffix}`;
     gsap.timeline({ scrollTrigger: { trigger: '.stats', start: 'top 80%', toggleActions: 'play none none reverse' } })
       .from(stat, { y: 60, opacity: 0, duration: 1, ease: 'expo.out', delay: i * 0.08 })
       .to(proxy, { v: +num.dataset.count, duration: 1.6, ease: 'power3.out', onUpdate: () => (num.textContent = Math.round(proxy.v) + suffix) }, '<');
   });
 }
-
-/* ---------- Section titles ---------- */
 
 function titles() {
   $$('[data-reveal]').forEach((el) => {
@@ -519,8 +491,6 @@ function titles() {
   );
 }
 
-/* ---------- Experience: stacked sticky cards ---------- */
-
 function experience() {
   const cards = $$('.card');
   cards.forEach((card, i) => {
@@ -530,8 +500,6 @@ function experience() {
     });
     const next = cards[i + 1];
     if (!next) return;
-    // Start only once the next card actually overlaps this one (its stuck bottom edge),
-    // so short cards stay fully lit while they're being read.
     const stuckTop = (el) => parseFloat(getComputedStyle(el).top) || 0;
     gsap.to(card, {
       scale: 0.9, yPercent: -4, '--dim': 0.55, ease: 'none',
@@ -548,8 +516,6 @@ function experience() {
     gsap.from(idx, { yPercent: 60, ease: 'none', scrollTrigger: { trigger: idx.parentElement, start: 'top bottom', end: 'top 14%', scrub: true } })
   );
 }
-
-/* ---------- Stack ---------- */
 
 function stack() {
   gsap.from('.skill', {
@@ -577,7 +543,12 @@ function stack() {
   });
 }
 
-/* ---------- Footer curtain ---------- */
+function code() {
+  gsap.from('.code__intro, .code__list li', {
+    y: 40, opacity: 0, duration: 1, ease: 'expo.out', stagger: 0.08,
+    scrollTrigger: { trigger: '.code__list', start: 'top 85%', toggleActions: 'play none none reverse' },
+  });
+}
 
 function footer() {
   const lines = $$('.footer__line');
@@ -586,14 +557,11 @@ function footer() {
     .from(lines[1], { xPercent: 14, ease: 'none' }, 0)
     .from('.footer__cta', { scale: 0.3, rotate: -90, ease: 'none' }, 0)
     .from('.footer__links', { y: 80, opacity: 0, ease: 'none' }, 0.2);
-  // As the curtain lifts, main's bottom edge rounds off.
   gsap.to('main', {
     borderBottomLeftRadius: 48, borderBottomRightRadius: 48, ease: 'none',
     scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'top 50%', scrub: true },
   });
 }
-
-/* ---------- Global chrome ---------- */
 
 function chrome() {
   gsap.to('.progress span', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
@@ -610,8 +578,6 @@ function chrome() {
     },
   });
 }
-
-/* ---------- Boot ---------- */
 
 setupCopyEmail();
 buildSeats();
@@ -641,10 +607,10 @@ if (reduceMotion) {
     titles();
     experience();
     stack();
+    code();
     footer();
     chrome();
     ScrollTrigger.refresh();
-    // Start the hero reveal as the loader curtain lifts.
     loader.add(() => intro.play(), '-=1.05');
     if (!loader.isActive() && loader.progress() === 1) intro.play();
   });
