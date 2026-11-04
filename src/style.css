@@ -99,12 +99,10 @@ html:not(.js) .loader { display: none; }
 
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: flex-end;
   padding: 20px var(--gutter);
   mix-blend-mode: difference; color: #fff;
 }
-.nav__logo { font-weight: 700; font-size: 20px; letter-spacing: -0.04em; }
-.nav__logo em { font-size: 22px; }
 .nav__links { display: flex; gap: 32px; font-size: 14px; }
 .nav__links a { position: relative; overflow: hidden; display: inline-block; }
 .nav__links a::after {
